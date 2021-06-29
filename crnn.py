@@ -104,19 +104,19 @@ class Predict:
     def __init__(self):
         if os.path.isfile('.crnn_label.pk') == False:
             self.download_file('http://download.homescenario.com:8765/crnn/label.pk','.crnn_label.pk')
-        if os.path.isfile('.crnn.horizontal.110.pth') == False:
-            self.download_file('http://download.homescenario.com:8765/crnn/crnn.horizontal.110.pth','.crnn.horizontal.110.pth')
+        if os.path.isfile('.crnn.horizontal.132.pth') == False:
+            self.download_file('http://download.homescenario.com:8765/crnn/crnn.horizontal.132.pth','.crnn.horizontal.132.pth')
         alpha = pickle.load(open('.crnn_label.pk','rb'))
 
         device = torch.device('cpu')
         # 加载权重，水平方向
         h_net = CRNN(num_classes=len(alpha))
-        h_net.load_state_dict(torch.load('.crnn.horizontal.110.pth', map_location='cpu')['model'])
+        h_net.load_state_dict(torch.load('.crnn.horizontal.132.pth', map_location='cpu')['model'])
         h_net.eval()
         h_net.to(device)
         # 垂直方向
         v_net = CRNNV(num_classes=len(alpha))
-        v_net.load_state_dict(torch.load('.crnn.horizontal.110.pth', map_location='cpu')['model'])
+        v_net.load_state_dict(torch.load('.crnn.horizontal.132.pth', map_location='cpu')['model'])
         v_net.eval()
         v_net.to(device)
         self.h_net = h_net
