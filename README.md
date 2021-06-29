@@ -1,5 +1,7 @@
 # twocr
 
+demo video https://youtu.be/IXKmbNcsYa0
+
 https://docs.google.com/document/d/e/2PACX-1vTb572XBajKzDisxlnvwVeXUjCsOqA3FvpiOlYcCEkBPtPTbnyTCLF16qNEvPDy1DZNepsjQcSMMhw_/pub
 
 This program use CRAFT and CRNN+CTC to provide an end-to-end image text extraction. We need to install the craft_text_detector by using
